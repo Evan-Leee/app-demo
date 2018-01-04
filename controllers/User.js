@@ -16,7 +16,9 @@ export default class User extends Base{
   }
 
   removeUser() {
-    const id = this.req.params.id;
+    console.log('============')
+    const id = this.req.body.id;
+    console.log(id)
     this.res.send(removeUserById(id));
   }
 

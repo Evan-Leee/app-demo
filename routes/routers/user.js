@@ -10,7 +10,7 @@ router.get('/:id', (req, res, next) => {
   new User(req, res).findUser();
 });
 
-router.post('/:id', (req, res, next) => {
+router.post('/', (req, res, next) => {
   new User(req, res).removeUser();
 });
 

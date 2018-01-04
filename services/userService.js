@@ -11,7 +11,7 @@ export const findUserById = (id) => {
   return _.filter(user, {'id': id});
 }
 
-export const removeUserById = () => {
+export const removeUserById = (id) => {
   const user = data.user;
   return _.reject(user, {'id': id});
 }
