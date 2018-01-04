@@ -26,7 +26,7 @@ export default class SolrSearcher {
             });
           } else {
             console.log(obj);
-            reject(Error('Response status is not 0.'));
+            reject(new Error('Response status is not 0.'));
           }
         }
       })
