@@ -8,17 +8,16 @@ export default class Listing extends Base {
   }
 
   findAllListing() {
-    return this.listingSearcher.searchListing()
-    .then((data) => {
-      this.res.send(data.dataArray)
+    this.listingSearcher.searchListing().then((data) => {
+      this.res.send(data);
     }, (reason) => {
       this.res.status(500).send(reason);
-    });
+    })
   }
 
   findListingById() {
     const id = this.req.params.id;
-    return this.listingSearcher.searchListing(id).then((data) => {
+    this.listingSearcher.searchListing(id).then((data) => {
       this.res.send(data.dataArray)
     }, (reason) => {
       this.res.status(500).send(reason);
