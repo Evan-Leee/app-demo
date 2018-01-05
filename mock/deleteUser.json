@@ -1,0 +1,11 @@
+[
+  {
+    "request": {
+      "method": "delete",
+      "uri": "/user/12306"
+    },
+    "response": {
+      "text":"OK, deleted"
+    }
+  }
+]

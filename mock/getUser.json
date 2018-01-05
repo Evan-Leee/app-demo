@@ -1,0 +1,48 @@
+[
+  {
+    "request": {
+      "method": "get",
+      "uri": "/user/12306"
+    },
+    "response": {
+      "headers": {
+        "content-type": "application/json"
+      },
+      "json": {
+      "id": "12306",
+      "name": "Evan",
+      "role": "dev",
+      "description": "he is a dev, he is amazing actor too."
+    }
+    }
+  },
+  {
+    "request": {
+      "method": "get",
+      "uri": "/user/12307"
+    },
+    "response": {
+      "headers": {
+        "content-type": "application/json"
+      },
+      "json": {
+        "id": "12307",
+        "name": "Ivan",
+        "role": "unknown",
+        "description": "This guys is very lazy, nothing left."
+      }
+    }
+  },
+  {
+    "request": {
+      "method": "get",
+      "uri": "/user"
+    },
+    "response": {
+      "headers": {
+        "content-type": "application/json"
+      },
+      "file": "allUser.json"
+    }
+  }
+]
