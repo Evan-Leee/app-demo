@@ -10,5 +10,9 @@
   {
     "file_root": "./",
     "include": "deleteUser.json"
+  },
+  {
+    "file_root": "./",
+    "include": "foo.json"
   }
 ]

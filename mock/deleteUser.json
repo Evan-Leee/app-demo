@@ -7,5 +7,15 @@
     "response": {
       "text":"OK, deleted"
     }
+  },
+  {
+    "request": {
+      "method": "delete",
+      "uri": "/user/12309"
+    },
+    "response": {
+      "status": "404",
+      "text":"User not exist"
+    }
   }
 ]
