@@ -1,25 +1,15 @@
-import Base from './Base';
 import { findUserById, removeUserById, findAllUser } from '../services/userService';
 
-export default class User extends Base{
-  constructor(req, res) {
-    super(req, res);
-  }
+export const findAll = (req, res, next) => {
+  res.send(findAllUser());
+}
 
-  findAll() {
-    this.res.send(findAllUser())
-  }
+export const findUser = (req, res, next) => {
+  const id = this.req.params.id;
+  res.send(findUserById(id));
+}
 
-  findUser() {
-    const id = this.req.params.id;
-    this.res.send(findUserById(id));
-  }
-
-  removeUser() {
-    console.log('============')
-    const id = this.req.body.id;
-    console.log(id)
-    this.res.send(removeUserById(id));
-  }
-
+export const removeUser = (req, res, next) => {
+  const id = this.req.body.id;
+  res.send(removeUserById(id));
 }

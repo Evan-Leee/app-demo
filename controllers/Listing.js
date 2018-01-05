@@ -1,26 +1,22 @@
-import SolrSearcher from '../seed/solr/solrSearch';
-import Base from './Base';
+import { getListings } from '../services/listingService';
 
-export default class Listing extends Base {
-  constructor(req, res) {
-    super(req, res);
-    this.listingSearcher = new SolrSearcher('listings');
+export const findAllListing = async (req, res, next) => {
+  try {
+    const listings = await getListings();
+    res.send(listings);
+  } catch(e) {
+    throw new Error(e)
+    res.status(500).send(e);
   }
+}
 
-  findAllListing() {
-    this.listingSearcher.searchListing().then((data) => {
-      this.res.send(data);
-    }, (reason) => {
-      this.res.status(500).send(reason);
-    })
-  }
-
-  findListingById() {
-    const id = this.req.params.id;
-    this.listingSearcher.searchListing(id).then((data) => {
-      this.res.send(data.dataArray)
-    }, (reason) => {
-      this.res.status(500).send(reason);
-    });
+export const findListingById = async (req, res, next) => {
+  const id = req.params.id;
+  try {
+    const listings = await getListings(id);
+    res.send(listings);
+  } catch(e) {
+    throw new Error(e)
+    res.status(500).send(e);
   }
 }

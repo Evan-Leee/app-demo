@@ -1,6 +1,5 @@
-import data from '../seed/data.json';
+import data from '../dao/data.json';
 import _ from 'lodash';
-
 
 export const findAllUser = () => {
   return data.user;

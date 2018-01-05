@@ -14,4 +14,4 @@ router.post('/', (req, res, next) => {
   new User(req, res).removeUser();
 });
 
-module.exports = router;
+export default router;
