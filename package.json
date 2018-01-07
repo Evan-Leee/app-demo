@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "babel-node ./app.js",
+    "start": "babel-node ./src/app.js",
     "test": "mocha --compilers js:babel-register"
   },
   "dependencies": {
