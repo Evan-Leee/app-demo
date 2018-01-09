@@ -1,3 +1,6 @@
 .DS_Store
 package-lock.json
 node_modules/
+.nyc_output/
+babel-node/
+mocha/

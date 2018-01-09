@@ -1,0 +1,49 @@
+import request from 'request';
+import bluebird from 'bluebird';
+import { expect } from 'chai';
+import app from '../../src/app';
+import getPort from 'get-port';
+
+const req = bluebird.promisifyAll(request);
+
+describe('listing api', () => {
+  let base_url, server;
+  before(async () => {
+    const port = await getPort();
+    base_url = `http://127.0.0.1:${port}`;
+    server = app.listen(port);
+  })
+  after(() => {
+    server.close();
+  })
+  describe('GET /', () => {
+    let result;
+    before(async () => {
+      result = await req.getAsync(base_url);
+    });
+    it('should return 200',  (done) => {
+      expect(result.statusCode).to.equal(200);
+      done();
+    });
+    it('should return two listings', (done) => {
+      expect(JSON.parse(result.body).number).to.equal(2);
+      done();
+    })
+  })
+
+  describe('GET /:id', () => {
+    let result;
+    before(async () => {
+      result = await req.getAsync(base_url + '/6000011');
+    });
+    it('should return 200',  (done) => {
+      expect(result.statusCode).to.equal(200);
+      done();
+    });
+    it('should return listing with the correct id', (done) => {
+      expect(JSON.parse(result.body).number).to.equal(1);
+      expect(JSON.parse(result.body).listings[0].documentid).to.equal('6000011');
+      done();
+    })
+  })
+}); 

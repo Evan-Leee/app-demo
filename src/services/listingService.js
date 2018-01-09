@@ -1,15 +1,22 @@
-import listings from '../dao/listings';
-import { getLogger } from 'log4js';
-const logger = getLogger('Listing Service');
+import listingCore from '../dao/listings';
+import _ from 'lodash';
 
-export const getListings = async (id) => {
-  const result = await listings.search(id);
-  const status = result.responseHeader.status;
-  if (status !== 0) {
-    throw new Error('Solr search error!');
+export class ListingService {
+  constructor(listingCollection) {
+    this.listingCollection = listingCollection;
   }
-  return {
-    number: result.response.numFound,
-    listings: result.response.docs
+
+  async getListings(id){
+    const result = await this.listingCollection.search(id);
+    const status = result.responseHeader.status;
+    if (status !== 0) {
+      throw new Error('Solr search error!');
+    }
+    return {
+      number: result.response.numFound,
+      listings: result.response.docs
+    }
   }
 }
+
+export default new ListingService(listingCore);
