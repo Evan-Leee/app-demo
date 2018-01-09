@@ -4,4 +4,4 @@ import userRouter from './routers/user';
 export default (app) => {
   app.use('/user', userRouter);
   app.use('/', listingRouter);
-}
+};

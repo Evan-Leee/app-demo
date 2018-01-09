@@ -1,12 +1,11 @@
 import listingCore from '../dao/listings';
-import _ from 'lodash';
 
 export class ListingService {
   constructor(listingCollection) {
     this.listingCollection = listingCollection;
   }
 
-  async getListings(id){
+  async getListings(id) {
     const result = await this.listingCollection.search(id);
     const status = result.responseHeader.status;
     if (status !== 0) {
@@ -15,7 +14,7 @@ export class ListingService {
     return {
       number: result.response.numFound,
       listings: result.response.docs
-    }
+    };
   }
 }
 

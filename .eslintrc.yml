@@ -1,0 +1,44 @@
+extends: standard
+plugins:
+  - standard
+  - promise
+  - import
+  - json
+
+parserOptions:
+  ecmaVersion: 7
+  sourceType: "module"
+  ecmaFeatures:
+    impliedStrict: true
+
+env:
+  mocha: true
+  node: true
+
+parser: "babel-eslint"
+
+rules:
+  semi: 
+    - 2
+    - "always"
+  camelcase: 
+    - 2
+    - properties: "always"
+  comma-dangle: 
+    - 2
+    - "only-multiline"
+  indent: 
+    - 2
+    - 2
+  padded-blocks: 
+    - 2
+    - "never"
+  operator-linebreak: 
+    - 2
+    - "after"
+  space-before-function-paren: 
+    - 2
+    - "never"
+  space-in-parens: 
+    - 2
+    - "never"
