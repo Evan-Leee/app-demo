@@ -42,3 +42,4 @@ rules:
   space-in-parens: 
     - 2
     - "never"
+  no-return-await: "off"
